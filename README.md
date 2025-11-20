@@ -9,11 +9,6 @@
 
 ---
 
-## 🔥 Project Architecture
-![Architecture](Architecture.png)
-
----
-
 ## 📌 Pipeline Flow
 ```mermaid
 graph TD
