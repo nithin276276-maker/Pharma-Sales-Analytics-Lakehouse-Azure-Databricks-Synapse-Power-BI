@@ -1,2 +1,24 @@
-# Pharma-Sales-Analytics-Lakehouse-Azure-Databricks-Synapse-Power-BI
-This Modern Data Engineering Lakehouse Architecture designed for analyzing pharmaceutical drug sales and product distribution trends. The raw open FDA drug datasets stored in Azure Data Lake Storage, transforms them using Azure Databricks, models curated datasets using Azure Synapse, and visualizes in interactive Power BI dashboard.
+# Pharma Sales Analytics Lakehouse  Azure Databricks, Synapse & Power BI
+## 🛠 Tech Stack
+- Azure Data Lake Gen2
+- Azure Databricks (PySpark)
+- Azure Synapse Serverless SQL
+- Azure Data Factory / API Ingestion
+- Delta & Parquet
+- Power BI Dashboard
+
+---
+
+## 🔥 Project Architecture
+![Architecture](Architecture.png)
+
+---
+
+## 📌 Pipeline Flow
+```mermaid
+graph TD
+A[OpenFDA API] --> B[Bronze - ADLS]
+B --> C[Silver - Databricks Transformations]
+C --> D[Gold - Curated Parquet]
+D --> E[Synapse External Tables]
+E --> F[Power BI Dashboard]
