@@ -1,0 +1,61 @@
+{
+    "name": "pl_ingest_openfda_ndc",
+    "properties": {
+        "activities": [
+            {
+                "name": "Copy_openFDA_to_Bronze",
+                "type": "Copy",
+                "dependsOn": [],
+                "policy": {
+                    "timeout": "0.12:00:00",
+                    "retry": 0,
+                    "retryIntervalInSeconds": 30,
+                    "secureOutput": false,
+                    "secureInput": false
+                },
+                "userProperties": [],
+                "typeProperties": {
+                    "source": {
+                        "type": "JsonSource",
+                        "storeSettings": {
+                            "type": "HttpReadSettings",
+                            "requestMethod": "GET"
+                        },
+                        "formatSettings": {
+                            "type": "JsonReadSettings"
+                        }
+                    },
+                    "sink": {
+                        "type": "JsonSink",
+                        "storeSettings": {
+                            "type": "AzureBlobFSWriteSettings"
+                        },
+                        "formatSettings": {
+                            "type": "JsonWriteSettings",
+                            "filePattern": {
+                                "value": "openfda@{formatDateTime(utcNow(),'yyyyMMdd_HHmmss')}.json\n",
+                                "type": "Expression"
+                            }
+                        }
+                    },
+                    "enableStaging": false
+                },
+                "inputs": [
+                    {
+                        "referenceName": "ds_openfda_ndc",
+                        "type": "DatasetReference"
+                    }
+                ],
+                "outputs": [
+                    {
+                        "referenceName": "ds_bronze_openfda",
+                        "type": "DatasetReference"
+                    }
+                ]
+            }
+        ],
+        "annotations": [],
+        "lastPublishTime": "2025-11-16T06:29:00Z"
+    },
+    "type": "Microsoft.DataFactory/factories/pipelines"
+}

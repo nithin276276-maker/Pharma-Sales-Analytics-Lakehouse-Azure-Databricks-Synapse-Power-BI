@@ -1,0 +1,19 @@
+{
+    "name": "ds_openfda_ndc",
+    "properties": {
+        "linkedServiceName": {
+            "referenceName": "ls_openfda_http",
+            "type": "LinkedServiceReference"
+        },
+        "annotations": [],
+        "type": "Json",
+        "typeProperties": {
+            "location": {
+                "type": "HttpServerLocation",
+                "relativeUrl": "drug/ndc.json?search=finished:true&limit=100"
+            }
+        },
+        "schema": {}
+    },
+    "type": "Microsoft.DataFactory/factories/datasets"
+}
