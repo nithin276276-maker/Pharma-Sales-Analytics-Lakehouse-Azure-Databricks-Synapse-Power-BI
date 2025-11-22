@@ -1,10 +1,10 @@
 # Pharma Sales Analytics Lakehouse  Azure Databricks, Synapse & Power BI
 ## 🛠 Tech Stack
 - Azure Data Lake Gen2
-- Azure Databricks (PySpark)
-- Azure Synapse Serverless SQL
 - Azure Data Factory / API Ingestion
+- Azure Databricks (PySpark)
 - Delta & Parquet
+- Azure Synapse Serverless SQL
 - Power BI Dashboard
 
 ---
